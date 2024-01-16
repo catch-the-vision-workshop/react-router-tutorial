@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import AboutUs from "./pages/about_us";
 import CourseList from "./pages/course_list";
 import NotFound from "./pages/not_found";
+import CourseInfo from "./pages/course_info";
 
 function App() {
   return (
@@ -17,6 +18,12 @@ function App() {
             <Link to="/courses">Course List</Link>
           </li>
           <li>
+            <Link to="/courses/ITE101">Course ITE101</Link>
+          </li>
+          <li>
+            <Link to="/courses/ITE420">Course ITE420</Link>
+          </li>
+          <li>
             <Link to="/about">About Us</Link>
           </li>
         </ul>
@@ -26,6 +33,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/courses" element={<CourseList />} />
         <Route path="/about" element={<AboutUs />} />
+
+        {/* will store value after /courses/.. inside "code" */}
+        <Route path="/courses/:code" element={<CourseInfo />} />
 
         {/* will render this if url does not match any of the above */}
         <Route path="*" element={<NotFound />} />
