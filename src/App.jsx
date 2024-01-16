@@ -6,6 +6,7 @@ import CourseList from "./pages/course_list";
 import NotFound from "./pages/not_found";
 import CourseInfo from "./pages/course_info";
 import SyntaxClub from "./pages/syntax";
+import CourseLayout from "./CourseLayout";
 
 function App() {
   return (
@@ -37,7 +38,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
 
-        <Route path="/courses">
+        <Route path="/courses" element={<CourseLayout />}>
           <Route index element={<CourseList />} />
           <Route path=":code" element={<CourseInfo />} />
           <Route path="syntax_club" element={<SyntaxClub />} />{" "}
