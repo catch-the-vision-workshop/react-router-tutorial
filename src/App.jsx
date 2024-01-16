@@ -35,16 +35,14 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/courses" element={<CourseList />} />
         <Route path="/about" element={<AboutUs />} />
 
-        {/* will store value after /courses/.. inside "code" */}
-        <Route path="/courses/:code" element={<CourseInfo />} />
+        <Route path="/courses">
+          <Route index element={<CourseList />} />
+          <Route path=":code" element={<CourseInfo />} />
+          <Route path="syntax_club" element={<SyntaxClub />} />{" "}
+        </Route>
 
-        {/* react router tends to see if the path matches with the hardcoded one first before checking with the dynamic one*/}
-        <Route path="/courses/syntax_club" element={<SyntaxClub />} />
-
-        {/* will render this if url does not match any of the above */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
