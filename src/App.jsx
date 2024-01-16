@@ -2,11 +2,8 @@ import "./App.css";
 import { Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import AboutUs from "./pages/about_us";
-import CourseList from "./pages/course_list";
 import NotFound from "./pages/not_found";
-import CourseInfo from "./pages/course_info";
-import SyntaxClub from "./pages/syntax";
-import CourseLayout from "./CourseLayout";
+import CourseRoutes from "./CourseRoutes";
 
 function App() {
   return (
@@ -38,11 +35,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
 
-        <Route path="/courses" element={<CourseLayout />}>
-          <Route index element={<CourseList />} />
-          <Route path=":code" element={<CourseInfo />} />
-          <Route path="syntax_club" element={<SyntaxClub />} />{" "}
-        </Route>
+        {/* notice the use of * to match all course-related paths */}
+        <Route path="/courses/*" element={<CourseRoutes />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
